@@ -1,6 +1,6 @@
 exports.main = async function (event, context) {
   return {
     statusCode: 200,
-    body: JSON.stringify("Hello, Lambda World"),
+    body: JSON.stringify({ message: "Hello, Lambda World" }),
   };
 };
