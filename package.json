@@ -1,0 +1,28 @@
+{
+  "name": "cdk-lambda-api",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Sample CDK Typescript project for Lambda API Gateway and DynamoDB",
+  "main": "src/infra/Launcher.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "cdk",
+    "typescript",
+    "lambda",
+    "api",
+    "gateway",
+    "dynamodb"
+  ],
+  "author": "fbrcode",
+  "devDependencies": {
+    "@types/node": "^20.10.1",
+    "aws-cdk": "^2.111.0",
+    "aws-cdk-lib": "^2.111.0",
+    "constructs": "^10.3.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}
