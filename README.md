@@ -16,6 +16,7 @@ Project with DynamoDb, Lambda function and API Gateway.
 - `npm i uuid` - install uuid package
 - `npm i -D @types/uuid` - install uuid types locally
 - `npm i -D @aws-sdk/client-s3` - install AWS S3 client locally
+- `npm i -D @aws-sdk/client-dynamodb` - install AWS DynamoDB client locally
 
 ## CDK commands
 

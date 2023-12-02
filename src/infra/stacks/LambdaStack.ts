@@ -6,6 +6,7 @@ import { Runtime } from "aws-cdk-lib/aws-lambda";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { Construct } from "constructs";
 import { join } from "path";
+import { DynamoDb } from "../../types/policyActions";
 
 interface LambdaStackProps extends StackProps {
   spacesTable: ITable;
@@ -25,6 +26,14 @@ export class LambdaStack extends Stack {
         TABLE_NAME: props.spacesTable.tableName,
       },
     });
+
+    spacesLambda.addToRolePolicy(
+      new PolicyStatement({
+        effect: Effect.ALLOW,
+        resources: [props.spacesTable.tableArn],
+        actions: [DynamoDb.PutItem],
+      })
+    );
 
     this.spacesLambdaIntegration = new LambdaIntegration(spacesLambda);
   }
