@@ -1,2 +1,5 @@
-GET https://asyw1j4rch.execute-api.us-west-1.amazonaws.com/prod/spaces
+GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces
+###
+
+POST https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces
 ###
