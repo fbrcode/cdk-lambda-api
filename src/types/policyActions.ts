@@ -1,6 +1,6 @@
 export enum DynamoDb {
   PutItem = "dynamodb:PutItem",
-  // GetItem = "dynamodb:GetItem",
+  GetItem = "dynamodb:GetItem",
   Scan = "dynamodb:Scan",
   // Query = "dynamodb:Query",
   // UpdateItem = "dynamodb:UpdateItem",

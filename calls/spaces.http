@@ -1,6 +1,9 @@
 GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces
 ###
 
+GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces?id=3347b597-8efe-4fbe-8179-2151aa55344f
+###
+
 POST https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces
 Content-Type: application/json
 
