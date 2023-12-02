@@ -18,6 +18,7 @@
   ],
   "author": "fbrcode",
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.465.0",
     "@aws-sdk/client-s3": "^3.465.0",
     "@types/aws-lambda": "^8.10.130",
     "@types/node": "^20.10.1",
