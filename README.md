@@ -13,11 +13,17 @@ Project with DynamoDb, Lambda function and API Gateway.
 - `aws configure --profile cdk` # setup a new aws profile for stack deployment
 - `npm i -D @types/aws-lambda` - install AWS Lambda types locally
 - `npm i -D esbuild` - install esbuild locally
-- `npm i uuid @types/uuid` - install uuid package and types locally
+- `npm i uuid` - install uuid package
+- `npm i -D @types/uuid` - install uuid types locally
+- `npm i -D @aws-sdk/client-s3` - install AWS S3 client locally
 
 ## CDK commands
 
 - `cdk synth --all --profile cdk` - initialize CDK project
 - `cdk deploy --all --profile cdk` - deploy CDK stack
-- `cdk deploy --all --require-approval never --profile cdk` - deploy CDK stack without approval
 - `cdk destroy --all --profile cdk` - destroy CDK stack
+
+Skipping approvals
+
+- `cdk deploy --all --require-approval never --profile cdk`
+- `cdk destroy --all --require-approval never --profile cdk`
