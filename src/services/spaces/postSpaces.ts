@@ -1,6 +1,5 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-import { RestMethod } from "../../types/rest";
 import { v4 } from "uuid";
 
 export async function postSpaces(
@@ -8,10 +7,11 @@ export async function postSpaces(
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
   const randomId = v4();
-  const item = JSON.parse(event.body || "{}");
+  const item = JSON.parse(event.body);
+  const table = process.env.TABLE_NAME;
   const result = await ddbClient.send(
     new PutItemCommand({
-      TableName: process.env.TABLE_NAME,
+      TableName: table,
       Item: {
         id: {
           S: randomId,

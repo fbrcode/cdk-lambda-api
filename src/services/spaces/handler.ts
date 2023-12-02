@@ -6,6 +6,7 @@ import {
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { RestMethod } from "../../types/rest";
 import { postSpaces } from "./postSpaces";
+import { getSpaces } from "./getSpaces";
 
 const ddbClient = new DynamoDBClient({});
 
@@ -13,13 +14,10 @@ export async function handler(
   event: APIGatewayProxyEvent,
   context: Context
 ): Promise<APIGatewayProxyResult> {
-  let message: string;
-
   try {
     switch (event.httpMethod) {
       case RestMethod.GET:
-        message = `Hello ${RestMethod.GET}`;
-        break;
+        return getSpaces(event, ddbClient);
       case RestMethod.POST:
         return postSpaces(event, ddbClient);
       default:
@@ -35,11 +33,4 @@ export async function handler(
       body: JSON.stringify(error.message),
     };
   }
-
-  const response: APIGatewayProxyResult = {
-    statusCode: 200,
-    body: JSON.stringify(message),
-  };
-
-  return response;
 }

@@ -8,7 +8,8 @@
       "runtimeArgs": ["-r", "ts-node/register"],
       "args": ["${relativeFile}"],
       "env": {
-        "AWS_PROFILE": "cdk"
+        "AWS_PROFILE": "cdk",
+        "TABLE_NAME": "SpacesTable-027b1e494763"
       }
     }
   ]
