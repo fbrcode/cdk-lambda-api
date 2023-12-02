@@ -13,3 +13,11 @@ handler(
   } as APIGatewayProxyEvent,
   {} as any
 );
+
+// handling GET request
+handler(
+  {
+    httpMethod: RestMethod.GET,
+  } as APIGatewayProxyEvent,
+  {} as any
+);

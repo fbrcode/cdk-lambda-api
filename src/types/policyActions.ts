@@ -1,3 +1,17 @@
 export enum DynamoDb {
   PutItem = "dynamodb:PutItem",
+  // GetItem = "dynamodb:GetItem",
+  Scan = "dynamodb:Scan",
+  // Query = "dynamodb:Query",
+  // UpdateItem = "dynamodb:UpdateItem",
+  // DeleteItem = "dynamodb:DeleteItem",
+  // BatchWriteItem = "dynamodb:BatchWriteItem",
+  // BatchGetItem = "dynamodb:BatchGetItem",
+  // ConditionCheckItem = "dynamodb:ConditionCheckItem",
+  // CreateTable = "dynamodb:CreateTable",
+  // DescribeTable = "dynamodb:DescribeTable",
+  // UpdateTable = "dynamodb:UpdateTable",
+  // DeleteTable = "dynamodb:DeleteTable",
+  // TagResource = "dynamodb:TagResource",
+  // UntagResource = "dynamodb:UntagResource",
 }
