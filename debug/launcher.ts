@@ -9,24 +9,24 @@ import { RestMethod } from "../src/types/rest";
 // handler(
 //   {
 //     httpMethod: RestMethod.POST,
-//     body: JSON.stringify({ location: "Dublin" }),
+//     body: JSON.stringify({ location: "London" }),
 //   } as any,
 //   {} as any
 // );
 
 // handling GET request for all spaces
-// handler(
-//   {
-//     httpMethod: RestMethod.GET,
-//   } as any,
-//   {} as any
-// );
-
-// handling GET request for specific space
 handler(
   {
     httpMethod: RestMethod.GET,
-    queryStringParameters: { id: "3347b597-8efe-4fbe-8179-2151aa55344f" },
   } as any,
   {} as any
 );
+
+// handling GET request for specific space
+// handler(
+//   {
+//     httpMethod: RestMethod.GET,
+//     queryStringParameters: { id: "1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48" },
+//   } as any,
+//   {} as any
+// );
