@@ -1,20 +1,20 @@
-GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces
+GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces
 ###
 
-GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces?id=1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48
+GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=62db2f86-db57-43bc-88f0-2b1d377b63a7
 ###
 
-POST https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces
+POST https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces
 Content-Type: application/json
 
-{ "location": "Lageado" }
+{ "location": "NYC", "name": "New York City" }
 ###
 
-PUT https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces?id=1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48
+PUT https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=62db2f86-db57-43bc-88f0-2b1d377b63a7
 Content-Type: application/json
 
 { "location": "Albatroz" }
 ###
 
-DELETE https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces?id=b36757d8-190b-4c3a-9f3b-e13e57af561d
+DELETE https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=62db2f86-db57-43bc-88f0-2b1d377b63a7
 ###

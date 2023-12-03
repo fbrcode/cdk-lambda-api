@@ -9,8 +9,8 @@ export async function postSpace(
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
   const id = v4();
-  const location = JSON.parse(event.body).location;
-  const item = { id, location };
+  const { location, name } = JSON.parse(event.body);
+  const item = { id, location: location, name };
   validateAsSpaceEntry(item);
   const table = process.env.TABLE_NAME;
   const result = await ddbClient.send(

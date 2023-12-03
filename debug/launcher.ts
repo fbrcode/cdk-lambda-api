@@ -8,11 +8,20 @@ process.env.TABLE_NAME = "SpacesTable-027b1e494763";
 // old way
 // handler({} as any, {} as any);
 
-// handling POST request
+// handling POST request (with missing name field)
+// handler(
+//   {
+//     httpMethod: RestMethod.POST,
+//     body: JSON.stringify({ location: "UK" }),
+//   } as any,
+//   {} as any
+// ).then((res) => console.log(res));
+
+// handling POST request (with location and name fields)
 handler(
   {
     httpMethod: RestMethod.POST,
-    body: JSON.stringify({ location: "London" }),
+    body: JSON.stringify({ location: "UK", name: "London" }),
   } as any,
   {} as any
 ).then((res) => console.log(res));
