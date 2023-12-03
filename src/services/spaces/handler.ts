@@ -9,6 +9,7 @@ import { postSpace } from "./postSpace";
 import { getSpaces } from "./getSpaces";
 import { updateSpace } from "./updateSpace";
 import { deleteSpace } from "./deleteSpace";
+import { MissingFieldError } from "../shared/validator";
 
 const ddbClient = new DynamoDBClient({});
 
@@ -19,21 +20,26 @@ export async function handler(
   try {
     switch (event.httpMethod) {
       case RestMethod.GET:
-        return getSpaces(event, ddbClient);
+        return await getSpaces(event, ddbClient);
       case RestMethod.POST:
         return postSpace(event, ddbClient);
       case RestMethod.PUT:
-        return updateSpace(event, ddbClient);
+        return await updateSpace(event, ddbClient);
       case RestMethod.DELETE:
-        return deleteSpace(event, ddbClient);
+        return await deleteSpace(event, ddbClient);
       default:
         return {
           statusCode: 400,
-          body: "Bad Request",
+          body: JSON.stringify("Bad Request"),
         };
     }
   } catch (error) {
-    console.error(error);
+    if (error instanceof MissingFieldError) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify(error.message),
+      };
+    }
     return {
       statusCode: 500,
       body: JSON.stringify(error.message),
