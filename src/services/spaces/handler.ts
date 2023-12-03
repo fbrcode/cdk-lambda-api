@@ -8,6 +8,7 @@ import { RestMethod } from "../../types/rest";
 import { postSpace } from "./postSpace";
 import { getSpaces } from "./getSpaces";
 import { updateSpace } from "./updateSpace";
+import { deleteSpace } from "./deleteSpace";
 
 const ddbClient = new DynamoDBClient({});
 
@@ -23,6 +24,8 @@ export async function handler(
         return postSpace(event, ddbClient);
       case RestMethod.PUT:
         return updateSpace(event, ddbClient);
+      case RestMethod.DELETE:
+        return deleteSpace(event, ddbClient);
       default:
         return {
           statusCode: 400,

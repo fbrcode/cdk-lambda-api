@@ -36,6 +36,7 @@ export class LambdaStack extends Stack {
           DynamoDb.Scan,
           DynamoDb.GetItem,
           DynamoDb.UpdateItem,
+          DynamoDb.DeleteItem,
         ],
       })
     );
