@@ -1,7 +1,7 @@
 GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces
 ###
 
-GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=62db2f86-db57-43bc-88f0-2b1d377b63a7
+GET https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=f05952eb-4a33-4508-940a-47c88f7cf5b9
 ###
 
 POST https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces
@@ -10,11 +10,11 @@ Content-Type: application/json
 { "location": "NYC", "name": "New York City" }
 ###
 
-PUT https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=62db2f86-db57-43bc-88f0-2b1d377b63a7
+PUT https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=f05952eb-4a33-4508-940a-47c88f7cf5b9
 Content-Type: application/json
 
-{ "location": "Albatroz" }
+{ "location": "Albatroz", "name": "Alba Beach" }
 ###
 
-DELETE https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=62db2f86-db57-43bc-88f0-2b1d377b63a7
+DELETE https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev/spaces?id=f05952eb-4a33-4508-940a-47c88f7cf5b9
 ###

@@ -1,16 +1,16 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall } from "@aws-sdk/util-dynamodb";
-import { v4 } from "uuid";
 import { validateAsSpaceEntry } from "../shared/validator";
+import { getRandomId, parseJSON } from "../shared/utils";
 
 export async function postSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
-  const id = v4();
-  const { location, name } = JSON.parse(event.body);
-  const item = { id, location: location, name };
+  const id = getRandomId();
+  const { location, name } = parseJSON(event.body);
+  const item = { id, location, name };
   validateAsSpaceEntry(item);
   const table = process.env.TABLE_NAME;
   const result = await ddbClient.send(

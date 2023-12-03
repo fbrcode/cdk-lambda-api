@@ -25,15 +25,11 @@
     "@aws-sdk/util-dynamodb": "^3.465.0",
     "@types/aws-lambda": "^8.10.130",
     "@types/node": "^20.10.1",
-    "@types/uuid": "^9.0.7",
     "aws-cdk": "^2.111.0",
     "aws-cdk-lib": "^2.111.0",
     "constructs": "^10.3.0",
     "esbuild": "^0.19.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
-  },
-  "dependencies": {
-    "uuid": "^9.0.1"
   }
 }

@@ -9,7 +9,7 @@ import { postSpace } from "./postSpace";
 import { getSpaces } from "./getSpaces";
 import { updateSpace } from "./updateSpace";
 import { deleteSpace } from "./deleteSpace";
-import { MissingFieldError } from "../shared/validator";
+import { InvalidJsonError, MissingFieldError } from "../shared/validator";
 
 const ddbClient = new DynamoDBClient({});
 
@@ -34,7 +34,10 @@ export async function handler(
         };
     }
   } catch (error) {
-    if (error instanceof MissingFieldError) {
+    if (
+      error instanceof MissingFieldError ||
+      error instanceof InvalidJsonError
+    ) {
       return {
         statusCode: 400,
         body: JSON.stringify(error.message),
