@@ -22,7 +22,7 @@ export async function handler(
       case RestMethod.GET:
         return await getSpaces(event, ddbClient);
       case RestMethod.POST:
-        return postSpace(event, ddbClient);
+        return await postSpace(event, ddbClient);
       case RestMethod.PUT:
         return await updateSpace(event, ddbClient);
       case RestMethod.DELETE:
