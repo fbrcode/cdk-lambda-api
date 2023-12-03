@@ -16,5 +16,6 @@ export class ApiStack extends Stack {
     spacesResource.addMethod(RestMethod.GET, props.spacesLambdaIntegration);
     spacesResource.addMethod(RestMethod.POST, props.spacesLambdaIntegration);
     spacesResource.addMethod(RestMethod.PUT, props.spacesLambdaIntegration);
+    spacesResource.addMethod(RestMethod.DELETE, props.spacesLambdaIntegration);
   }
 }

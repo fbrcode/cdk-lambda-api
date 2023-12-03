@@ -35,11 +35,19 @@ process.env.TABLE_NAME = "SpacesTable-027b1e494763";
 // );
 
 // handling PUT request for specific space (update)
+// handler(
+//   {
+//     httpMethod: RestMethod.PUT,
+//     queryStringParameters: { id: "1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48" },
+//     body: JSON.stringify({ location: "UK" }),
+//   } as any,
+//   {} as any
+// );
+
 handler(
   {
-    httpMethod: RestMethod.PUT,
+    httpMethod: RestMethod.DELETE,
     queryStringParameters: { id: "1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48" },
-    body: JSON.stringify({ location: "UK" }),
   } as any,
   {} as any
 );

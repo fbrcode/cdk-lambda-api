@@ -15,3 +15,6 @@ Content-Type: application/json
 
 { "location": "Albatroz" }
 ###
+
+DELETE https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces?id=b36757d8-190b-4c3a-9f3b-e13e57af561d
+###
