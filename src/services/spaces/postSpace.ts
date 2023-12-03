@@ -3,13 +3,26 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall } from "@aws-sdk/util-dynamodb";
 import { v4 } from "uuid";
 
-export async function postSpaces(
+export async function postSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
-  const randomId = v4();
-  const body = JSON.parse(event.body);
-  const item = { id: randomId, location: body.location };
+  if (!event.body) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify("Message body is required!"),
+    };
+  }
+  const location = JSON.parse(event.body).location;
+  if (!location) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify("Location is required!"),
+    };
+  }
+
+  const id = v4();
+  const item = { id, location };
   const table = process.env.TABLE_NAME;
   const marshallItem = marshall(item);
   const result = await ddbClient.send(
@@ -23,7 +36,7 @@ export async function postSpaces(
   return {
     statusCode: 201,
     body: JSON.stringify({
-      id: randomId,
+      id,
     }),
   };
 }

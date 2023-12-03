@@ -5,8 +5,9 @@ import {
 } from "aws-lambda";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { RestMethod } from "../../types/rest";
-import { postSpaces } from "./postSpaces";
+import { postSpace } from "./postSpace";
 import { getSpaces } from "./getSpaces";
+import { updateSpace } from "./updateSpace";
 
 const ddbClient = new DynamoDBClient({});
 
@@ -19,7 +20,9 @@ export async function handler(
       case RestMethod.GET:
         return getSpaces(event, ddbClient);
       case RestMethod.POST:
-        return postSpaces(event, ddbClient);
+        return postSpace(event, ddbClient);
+      case RestMethod.PUT:
+        return updateSpace(event, ddbClient);
       default:
         return {
           statusCode: 400,

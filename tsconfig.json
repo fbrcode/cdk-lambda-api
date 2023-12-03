@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "ES2020"
+    "target": "ES2020",
+    "outDir": "build"
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "out", "debug", "build"]
 }
