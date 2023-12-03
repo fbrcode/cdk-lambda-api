@@ -5,6 +5,8 @@
   "description": "Sample CDK Typescript project for Lambda API Gateway and DynamoDB",
   "main": "src/infra/Launcher.ts",
   "scripts": {
+    "build": "tsc --noEmit",
+    "debug": "ts-node debug/launcher.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

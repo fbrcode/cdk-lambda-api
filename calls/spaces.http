@@ -9,3 +9,9 @@ Content-Type: application/json
 
 { "location": "Lageado" }
 ###
+
+PUT https://szdekilrmk.execute-api.us-west-1.amazonaws.com/prod/spaces?id=1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48
+Content-Type: application/json
+
+{ "location": "Albatroz" }
+###

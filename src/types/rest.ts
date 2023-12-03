@@ -1,6 +1,6 @@
 export enum RestMethod {
   GET = "GET",
   POST = "POST",
-  // PUT = "PUT",
+  PUT = "PUT",
   // DELETE = "DELETE",
 }
