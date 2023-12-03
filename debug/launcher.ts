@@ -8,14 +8,23 @@ process.env.TABLE_NAME = "SpacesTable-027b1e494763";
 // old way
 // handler({} as any, {} as any);
 
-// handling POST request
+// handling POST request (with missing name field)
 // handler(
 //   {
 //     httpMethod: RestMethod.POST,
-//     body: JSON.stringify({ location: "London" }),
+//     body: JSON.stringify({ location: "UK" }),
 //   } as any,
 //   {} as any
-// );
+// ).then((res) => console.log(res));
+
+// handling POST request (with location and name fields)
+handler(
+  {
+    httpMethod: RestMethod.POST,
+    body: JSON.stringify({ location: "UK", name: "London" }),
+  } as any,
+  {} as any
+).then((res) => console.log(res));
 
 // handling GET request for all spaces
 // handler(
@@ -23,7 +32,7 @@ process.env.TABLE_NAME = "SpacesTable-027b1e494763";
 //     httpMethod: RestMethod.GET,
 //   } as any,
 //   {} as any
-// );
+// ).then((res) => console.log(res));
 
 // handling GET request for specific space
 // handler(
@@ -32,7 +41,7 @@ process.env.TABLE_NAME = "SpacesTable-027b1e494763";
 //     queryStringParameters: { id: "1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48" },
 //   } as any,
 //   {} as any
-// );
+// ).then((res) => console.log(res));
 
 // handling PUT request for specific space (update)
 // handler(
@@ -42,12 +51,13 @@ process.env.TABLE_NAME = "SpacesTable-027b1e494763";
 //     body: JSON.stringify({ location: "UK" }),
 //   } as any,
 //   {} as any
-// );
+// ).then((res) => console.log(res));
 
-handler(
-  {
-    httpMethod: RestMethod.DELETE,
-    queryStringParameters: { id: "1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48" },
-  } as any,
-  {} as any
-);
+// handling DELETE request for specific space
+// handler(
+//   {
+//     httpMethod: RestMethod.DELETE,
+//     queryStringParameters: { id: "1dcce616-bbd8-4d1c-bea9-f80bb5d6dd48" },
+//   } as any,
+//   {} as any
+// ).then((res) => console.log(res));
