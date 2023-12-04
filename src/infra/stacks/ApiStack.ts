@@ -18,7 +18,7 @@ export class ApiStack extends Stack {
     const api = new RestApi(this, "SpacesApi", {
       deployOptions: {
         metricsEnabled: true,
-        loggingLevel: MethodLoggingLevel.INFO,
+        loggingLevel: MethodLoggingLevel.ERROR,
         variables: {
           LogGroup: `/aws/apigateway/${this.stackName}`,
         },

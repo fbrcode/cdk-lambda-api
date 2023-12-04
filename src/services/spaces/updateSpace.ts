@@ -1,6 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
 import { unmarshall } from "@aws-sdk/util-dynamodb";
+import { parseJSON } from "../shared/utils";
 
 export async function updateSpace(
   event: APIGatewayProxyEvent,
@@ -13,10 +14,51 @@ export async function updateSpace(
     "id" in event.queryStringParameters &&
     event.body
   ) {
-    const parsedBody = JSON.parse(event.body);
+    const parsedBody = parseJSON(event.body);
     const spaceId = event.queryStringParameters["id"];
-    const requestBodyKey = Object.keys(parsedBody)[0];
-    const requestBodyValue = parsedBody[requestBodyKey];
+
+    let updateExpression = "set ";
+    let expressionNames = {};
+    let expressionValues = {};
+
+    const payload = Object.keys(parsedBody);
+
+    const locationKey = payload.filter((key) => key === "location")[0];
+    const locationValue = parsedBody[locationKey];
+    const hasLocation = locationKey && locationValue;
+    if (hasLocation) {
+      updateExpression += " #location = :location,";
+      expressionNames = {
+        ...expressionNames,
+        "#location": locationKey,
+      };
+      expressionValues = {
+        ...expressionValues,
+        ":location": { S: locationValue },
+      };
+    }
+
+    const nameKey = payload.filter((key) => key === "name")[0];
+    const nameValue = parsedBody[nameKey];
+    const hasName = nameKey && nameValue;
+    if (hasName) {
+      updateExpression += " #name = :name,";
+      expressionNames = {
+        ...expressionNames,
+        "#name": nameKey,
+      };
+      expressionValues = {
+        ...expressionValues,
+        ":name": { S: nameValue },
+      };
+    }
+
+    if (!hasLocation && !hasName) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify("Please provide correct arguments to update!"),
+      };
+    }
 
     const updateResult = await ddbClient.send(
       new UpdateItemCommand({
@@ -26,15 +68,9 @@ export async function updateSpace(
             S: spaceId,
           },
         },
-        UpdateExpression: "set #location = :location",
-        ExpressionAttributeValues: {
-          ":location": {
-            S: requestBodyValue,
-          },
-        },
-        ExpressionAttributeNames: {
-          "#location": requestBodyKey,
-        },
+        UpdateExpression: updateExpression.slice(0, -1),
+        ExpressionAttributeNames: expressionNames,
+        ExpressionAttributeValues: expressionValues,
         ReturnValues: "UPDATED_NEW",
       })
     );
