@@ -1,14 +1,20 @@
 import { Stack, StackProps } from "aws-cdk-lib";
 import {
+  AuthorizationType,
+  CognitoUserPoolsAuthorizer,
   LambdaIntegration,
   MethodLoggingLevel,
+  MethodOptions,
   RestApi,
 } from "aws-cdk-lib/aws-apigateway";
 import { Construct } from "constructs";
+import { IUserPool } from "aws-cdk-lib/aws-cognito";
 import { RestMethod } from "../../types/rest";
+import { Auth } from "aws-amplify";
 
 interface ApiStackProps extends StackProps {
   spacesLambdaIntegration: LambdaIntegration;
+  userPool: IUserPool;
 }
 
 export class ApiStack extends Stack {
@@ -28,10 +34,45 @@ export class ApiStack extends Stack {
       deploy: true,
     });
 
+    const authorizer = new CognitoUserPoolsAuthorizer(
+      this,
+      "SpacesApiAuthorizer",
+      {
+        cognitoUserPools: [props.userPool],
+        identitySource: "method.request.header.Authorization",
+      }
+    );
+    authorizer._attachToApi(api);
+
+    const optionsWithAuth: MethodOptions = {
+      authorizationType: AuthorizationType.COGNITO,
+      authorizer: { authorizerId: authorizer.authorizerId },
+    };
+
     const spacesResource = api.root.addResource("spaces");
-    spacesResource.addMethod(RestMethod.GET, props.spacesLambdaIntegration);
-    spacesResource.addMethod(RestMethod.POST, props.spacesLambdaIntegration);
-    spacesResource.addMethod(RestMethod.PUT, props.spacesLambdaIntegration);
-    spacesResource.addMethod(RestMethod.DELETE, props.spacesLambdaIntegration);
+
+    spacesResource.addMethod(
+      RestMethod.GET,
+      props.spacesLambdaIntegration,
+      optionsWithAuth
+    );
+
+    spacesResource.addMethod(
+      RestMethod.POST,
+      props.spacesLambdaIntegration,
+      optionsWithAuth
+    );
+
+    spacesResource.addMethod(
+      RestMethod.PUT,
+      props.spacesLambdaIntegration,
+      optionsWithAuth
+    );
+
+    spacesResource.addMethod(
+      RestMethod.DELETE,
+      props.spacesLambdaIntegration,
+      optionsWithAuth
+    );
   }
 }
