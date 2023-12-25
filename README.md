@@ -20,6 +20,7 @@ Project with DynamoDb, Lambda function and API Gateway.
 
 ## CDK commands
 
+- `cdk bootstrap --profile cdk` - bootstrap CDK project
 - `cdk synth --all --profile cdk` - initialize CDK project
 - `cdk deploy --all --profile cdk` - deploy CDK stack
 - `cdk destroy --all --profile cdk` - destroy CDK stack
@@ -61,3 +62,43 @@ Add the following configuration to the `launch.json` file:
 Mark a breakpoint on the lambda function you want to debug.
 
 On the debug tab, select the `Debug local` option, select `debug/launcher.ts` file and click on the play button to start debugging.
+
+## Authentication with AWS Cognito
+
+Create a new cognito `demo` user on console inside the user pool to test it out.
+
+Or use AWS CLI for it:
+
+```sh
+# check how to create this properly
+
+aws cognito-idp admin-create-user \
+--user-pool-id us-west-1_IqbmJwdip \
+--username demo \
+--user-attributes Name=email,Value=demo@example.com \
+--profile cdk | cat
+```
+
+Then validate the password with the following command:
+
+```sh
+aws cognito-idp admin-set-user-password \
+--user-pool-id us-west-1_IqbmJwdip \
+--username demo \
+--password Demo-999 \
+--permanent \
+--profile cdk | cat
+```
+
+Install the following Amplify libraries:
+
+- `npm i -D aws-amplify@5.x` - integrates with Cognito (use amplify v5.x)
+- `npm i -D @aws-amplify/auth@5.x` - used to have proper typings
+
+> Note: Using [Amplify v5.x](https://docs.amplify.aws/javascript/prev/build-a-backend/auth/enable-sign-up/) (v6.x available now)
+
+Check if the user is authenticated:
+
+```sh
+npm run auth-jwt-test
+```
