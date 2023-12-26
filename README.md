@@ -134,3 +134,15 @@ Check if the user is authenticated:
 ```sh
 npm run auth-jwt-test
 ```
+
+### Cognito Identity Pool
+
+Enable Cognito Identity Pool by enhancing Auth stack with:
+
+- Identity Pool
+- Identity Pool Roles
+- Attaching Roles (Authenticated and Unauthenticated) as Trust Relationships
+
+Install the following library to manage Cognito Identity Pool providers:
+
+- `npm i -D @aws-sdk/credential-providers`

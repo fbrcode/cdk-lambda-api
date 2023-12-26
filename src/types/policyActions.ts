@@ -15,3 +15,7 @@ export enum DynamoDb {
   // TagResource = "dynamodb:TagResource",
   // UntagResource = "dynamodb:UntagResource",
 }
+
+export enum S3 {
+  ListAllMyBuckets = "s3:ListAllMyBuckets",
+}
