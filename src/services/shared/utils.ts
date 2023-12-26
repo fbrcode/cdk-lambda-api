@@ -1,4 +1,4 @@
-import { APIGatewayProxyEvent } from "aws-lambda";
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { InvalidJsonError } from "./validator";
 import { randomUUID } from "crypto";
 
@@ -20,4 +20,12 @@ export function hasAdminGroup(event: APIGatewayProxyEvent): boolean {
     return groups.includes("Administrators");
   }
   return false;
+}
+
+export function addCorsHeaders(arg: APIGatewayProxyResult): void {
+  if (!arg.headers) {
+    arg.headers = {};
+  }
+  arg.headers["Access-Control-Allow-Origin"] = "*";
+  arg.headers["Access-Control-Allow-Methods"] = "*";
 }
