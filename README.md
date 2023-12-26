@@ -146,3 +146,20 @@ Enable Cognito Identity Pool by enhancing Auth stack with:
 Install the following library to manage Cognito Identity Pool providers:
 
 - `npm i -D @aws-sdk/credential-providers`
+
+## React App
+
+- **Components**: independent and reusable bits of code (jsx/tsx), return html + logic
+
+- **State/Props**: represents the data of the app, can be changed over time (state changing), reacting to user actions, network responses, etc... then the component re-renders with the new data. Props (properties) are data injected from the outside (parent component).
+
+- **Hooks**: functions that let you "hook into" React state and lifecycle features from function components. Hooks don't work inside classes. Most common hooks are `useState` and `useEffect`.
+
+Create a new React app with Vite:
+
+```sh
+git rm space-ui/dist/index.html
+npm init vite@latest spaces-ui -- --template react-ts
+cd spaces-ui
+npm install
+```
