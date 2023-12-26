@@ -1,23 +1,29 @@
-@dev = https://szdekilrmk.execute-api.us-west-1.amazonaws.com/dev
-@id = f05952eb-4a33-4508-940a-47c88f7cf5b9
+@dev = https://tf0gfukyca.execute-api.us-west-1.amazonaws.com/dev
+@id = 8846325f-ad57-4a34-9caf-92ba64abadbd
+@token = eyJraWQiOiIyclJwY016dHdkaDBDYmFUUk1xXC9sa2JkV3BcL2JNdFR0czVxMUJwVjNoZTA9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI3MGE3YWZkYi04ZDM1LTQ5ZWMtOWYwYS1mYTZiODUxOTVkYTkiLCJjb2duaXRvOmdyb3VwcyI6WyJBZG1pbmlzdHJhdG9ycyJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0xLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMV9JcWJtSndkaXAiLCJjb2duaXRvOnVzZXJuYW1lIjoiZGVtbyIsIm9yaWdpbl9qdGkiOiIyY2ZhZDkxYy02ZWRmLTRlODUtOTM0Ny03ZjNjNjRlNmE5OTQiLCJhdWQiOiI3bnRvbjNsaWliMHBmMnByN3ZpNjNuY21pdSIsImV2ZW50X2lkIjoiZTMyNDU4MDAtNzcyNy00OGFmLWJkYWEtNGY2NmQ2N2M0MDc4IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE3MDM1NTEzNjYsImV4cCI6MTcwMzU1NDk2NiwiaWF0IjoxNzAzNTUxMzY2LCJqdGkiOiIwYzQ0MjU3Ni01YWUyLTQxZDQtYmM3YS1jNzE1NmUzYTA5YjMiLCJlbWFpbCI6ImRlbW9AZXhhbXBsZS5jb20ifQ.gZEkj0SMHclpV6YSntR94xalkO4KtRxelDN4olw7U2QLW2vTox91FbTB2fOnyWdbkvPI2uAif9gO7S8yQkJkJcjLHJP2Er7Twv85o_scsgcG05rdTsaw2PChdoOrp5-CuQmBDDqAkl4DWqWUZZF8hP8Fp2uUGRkuEhB8fZEfDKYNdalx4rtBVCcsuKwfAEDCEEhiNr0BVK-PPw8JQoZZjeMVKnXRtde6GerF7plty5HOP6l9M6VN9J10LgTD065bJzoBgH8e3BNpIMfCtbGHGj47Foxeg_WgQsa01o3s4zy2JaRZ4F0xKCMhkRZ_k5CxOmOULivNZ-FIl8WW8rCnXA
 
 GET {{dev}}/spaces
+Authorization: {{token}}
 ###
 
 GET {{dev}}/spaces?id={{id}}
+Authorization: {{token}}
 ###
 
 POST {{dev}}/spaces
+Authorization: {{token}}
 Content-Type: application/json
 
 { "location": "NYC", "name": "New York City" }
 ###
 
 PUT {{dev}}/spaces?id={{id}}
+Authorization: {{token}}
 Content-Type: application/json
 
 { "location": "Albatroz", "name": "Alba Beach" }
 ###
 
 DELETE {{dev}}/spaces?id={{id}}
+Authorization: {{token}}
 ###

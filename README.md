@@ -90,6 +90,38 @@ aws cognito-idp admin-set-user-password \
 --profile cdk | cat
 ```
 
+List groups:
+
+```sh
+aws cognito-idp list-groups \
+--user-pool-id us-west-1_IqbmJwdip \
+--output table \
+--profile cdk | cat
+```
+
+```txt
+------------------------------------------------------------
+|                        ListGroups                        |
++----------------------------------------------------------+
+||                         Groups                         ||
+|+-------------------+------------------------------------+|
+||  CreationDate     |  2023-12-25T21:32:40.623000-03:00  ||
+||  GroupName        |  Administrators                    ||
+||  LastModifiedDate |  2023-12-25T21:32:40.623000-03:00  ||
+||  UserPoolId       |  us-west-1_IqbmJwdip               ||
+|+-------------------+------------------------------------+|
+```
+
+Add user to Administrators group:
+
+```sh
+aws cognito-idp admin-add-user-to-group \
+--user-pool-id us-west-1_IqbmJwdip \
+--username demo \
+--group-name Administrators \
+--profile cdk | cat
+```
+
 Install the following Amplify libraries:
 
 - `npm i -D aws-amplify@5.x` - integrates with Cognito (use amplify v5.x)
