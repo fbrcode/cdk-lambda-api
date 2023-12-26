@@ -163,3 +163,7 @@ npm init vite@latest spaces-ui -- --template react-ts
 cd spaces-ui
 npm install
 ```
+
+Install the following libraries:
+
+- `npm i react-router-dom` - routing
