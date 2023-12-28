@@ -135,6 +135,10 @@ Check if the user is authenticated:
 npm run auth-jwt-test
 ```
 
+JWT validation:
+
+- [jwt.io](https://jwt.io/)
+
 ### Cognito Identity Pool
 
 Enable Cognito Identity Pool by enhancing Auth stack with:
@@ -147,7 +151,7 @@ Install the following library to manage Cognito Identity Pool providers:
 
 - `npm i -D @aws-sdk/credential-providers`
 
-## React App
+## React App (Vite)
 
 - **Components**: independent and reusable bits of code (jsx/tsx), return html + logic
 
@@ -167,3 +171,19 @@ npm install
 Install the following libraries:
 
 - `npm i react-router-dom` - routing
+- `npm i @aws-amplify/auth` - authentication
+- `npm i @aws-amplify/auth@5.x`
+
+Run the app locally:
+
+```sh
+npm run dev
+```
+
+Build the app to ./dist folder:
+
+```sh
+npm run build
+```
+
+Then deploy the static files to S3 and CloudFront by triggering the CDK stack deployment.

@@ -12,10 +12,10 @@
   "LambdaStack": {
     "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:us-west-1:398624185453:function:LambdaStack-SpacesLambdaA5F923A4-UOD7m80C2l0A"
   },
+  "UiDeploymentStack": {
+    "SpaceUiUrl": "d2wqx0cca5zcbe.cloudfront.net"
+  },
   "ApiStack": {
     "SpacesApiEndpoint36C4F3B6": "https://tf0gfukyca.execute-api.us-west-1.amazonaws.com/dev/"
-  },
-  "UiDeploymentStack": {
-    "SpaceUiUrl": "djw83fblawmpt.cloudfront.net"
   }
 }

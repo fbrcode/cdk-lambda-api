@@ -15,10 +15,10 @@ export class UiDeploymentStack extends Stack {
     const suffix = getSuffixFromStack(this);
 
     const deploymentBucket = new Bucket(this, "uiDeploymentBucket", {
-      bucketName: `space-ui-${suffix}`,
+      bucketName: `spaces-ui-${suffix}`,
     });
 
-    const uiFolder = join(__dirname, "..", "..", "..", "space-ui", "dist");
+    const uiFolder = join(__dirname, "..", "..", "..", "spaces-ui", "dist");
     if (!existsSync(uiFolder)) {
       console.warn(`UI folder ${uiFolder} not found, skipping UI deployment`);
       return;
