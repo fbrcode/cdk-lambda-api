@@ -171,8 +171,12 @@ npm install
 Install the following libraries:
 
 - `npm i react-router-dom` - routing
-- `npm i @aws-amplify/auth` - authentication
-- `npm i @aws-amplify/auth@5.x`
+- `npm i @aws-amplify/auth@5.x` - authentication
+<!--
+- `npm i @aws-sdk/client-cognito-identity` - cognito identity pool
+- `npm i @aws-sdk/credential-providers` - cognito identity pool
+  -->
+- `npm i @aws-sdk/client-s3` - s3 client
 
 Run the app locally:
 

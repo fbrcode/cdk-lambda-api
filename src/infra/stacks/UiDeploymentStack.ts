@@ -20,7 +20,7 @@ export class UiDeploymentStack extends Stack {
 
     const uiFolder = join(__dirname, "..", "..", "..", "spaces-ui", "dist");
     if (!existsSync(uiFolder)) {
-      console.warn(`UI folder ${uiFolder} not found, skipping UI deployment`);
+      console.warn(`Skipping UI deployment. UI folder not found: ${uiFolder}`);
       return;
     }
 

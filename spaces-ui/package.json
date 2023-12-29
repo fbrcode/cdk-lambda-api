@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@aws-amplify/auth": "^5.6.7",
+    "@aws-sdk/client-s3": "^3.481.0",
+    "@aws-sdk/types": "^3.468.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1"
