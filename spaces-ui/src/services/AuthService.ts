@@ -24,6 +24,13 @@ export class AuthService {
   private jwtToken: string | undefined;
   private temporaryCredentials: AwsCredentialIdentity | undefined;
 
+  public async isAuthorized(): Promise<boolean> {
+    if (this.user) {
+      return true;
+    }
+    return false;
+  }
+
   public async login(
     userName: string,
     password: string

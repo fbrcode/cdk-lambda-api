@@ -1,12 +1,7 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { AuthService } from "./AuthService";
 import { DataStack, ApiStack } from "../../../out/outputs.json";
-
-type spaceType = {
-  name: string;
-  location: string;
-  photoUrl?: string;
-};
+import { SpaceEntry } from "../components/model/space";
 
 const spacesUrl = ApiStack.SpacesApiEndpoint36C4F3B6 + "spaces";
 
@@ -19,11 +14,25 @@ export class DataService {
     this.authService = authService;
   }
 
+  public reserveSpace(spaceId: string): string {
+    console.log(spaceId);
+    return "123";
+  }
+
+  public async getSpaces(): Promise<SpaceEntry[]> {
+    const method = "GET";
+    const headers = new Headers();
+    headers.append("Authorization", this.authService.getJwtToken() || "");
+    const options: RequestInit = { method, headers };
+    const getSpacesResult = await fetch(spacesUrl, options);
+    const getSpacesResultJson: SpaceEntry[] = await getSpacesResult.json();
+    return getSpacesResultJson;
+  }
+
   public async createSpace(name: string, location: string, photo?: File) {
     // const credentials = await this.authService.getTemporaryCredentials();
     // console.log(credentials);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const space = {} as spaceType;
+    const space = {} as SpaceEntry;
     space.name = name;
     space.location = location;
     if (photo) {
@@ -61,6 +70,6 @@ export class DataService {
   }
 
   public isAuthorized() {
-    return true;
+    return this.authService.isAuthorized();
   }
 }
