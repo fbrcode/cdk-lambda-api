@@ -135,6 +135,10 @@ Check if the user is authenticated:
 npm run auth-jwt-test
 ```
 
+JWT validation:
+
+- [jwt.io](https://jwt.io/)
+
 ### Cognito Identity Pool
 
 Enable Cognito Identity Pool by enhancing Auth stack with:
@@ -146,3 +150,44 @@ Enable Cognito Identity Pool by enhancing Auth stack with:
 Install the following library to manage Cognito Identity Pool providers:
 
 - `npm i -D @aws-sdk/credential-providers`
+
+## React App (Vite)
+
+- **Components**: independent and reusable bits of code (jsx/tsx), return html + logic
+
+- **State/Props**: represents the data of the app, can be changed over time (state changing), reacting to user actions, network responses, etc... then the component re-renders with the new data. Props (properties) are data injected from the outside (parent component).
+
+- **Hooks**: functions that let you "hook into" React state and lifecycle features from function components. Hooks don't work inside classes. Most common hooks are `useState` and `useEffect`.
+
+Create a new React app with Vite:
+
+```sh
+git rm space-ui/dist/index.html
+npm init vite@latest spaces-ui -- --template react-ts
+cd spaces-ui
+npm install
+```
+
+Install the following libraries:
+
+- `npm i react-router-dom` - routing
+- `npm i @aws-amplify/auth@5.x` - authentication
+<!--
+- `npm i @aws-sdk/client-cognito-identity` - cognito identity pool
+- `npm i @aws-sdk/credential-providers` - cognito identity pool
+  -->
+- `npm i @aws-sdk/client-s3` - s3 client
+
+Run the app locally:
+
+```sh
+npm run dev
+```
+
+Build the app to ./dist folder:
+
+```sh
+npm run build
+```
+
+Then deploy the static files to S3 and CloudFront by triggering the CDK stack deployment.

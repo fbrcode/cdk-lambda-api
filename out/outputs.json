@@ -1,0 +1,23 @@
+{
+  "DataStack": {
+    "SpaceUiPhotosBucketName": "space-ui-photos-02508e0032e3",
+    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpacesTable-02508e0032e3",
+    "ExportsOutputFnGetAttSpaceUiPhotos2310E386ArnE998D6C0": "arn:aws:s3:::space-ui-photos-02508e0032e3",
+    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:us-west-1:398624185453:table/SpacesTable-02508e0032e3"
+  },
+  "UiDeploymentStack": {
+    "SpaceUiUrl": "d2wqx0cca5zcbe.cloudfront.net"
+  },
+  "AuthStack": {
+    "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:us-west-1:398624185453:userpool/us-west-1_IqbmJwdip",
+    "SpaceUserPoolId": "us-west-1_IqbmJwdip",
+    "SpaceUserPoolClientId": "7nton3liib0pf2pr7vi63ncmiu",
+    "SpaceIdentityPoolId": "us-west-1:fef4c39e-b727-42de-aeda-0dfea9f62c87"
+  },
+  "LambdaStack": {
+    "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:us-west-1:398624185453:function:LambdaStack-SpacesLambdaA5F923A4-UOD7m80C2l0A"
+  },
+  "ApiStack": {
+    "SpacesApiEndpoint36C4F3B6": "https://tf0gfukyca.execute-api.us-west-1.amazonaws.com/dev/"
+  }
+}
