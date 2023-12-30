@@ -45,6 +45,10 @@ export class AuthService {
     return this.user?.getUsername();
   }
 
+  public getJwtToken() {
+    return this.jwtToken;
+  }
+
   public async getTemporaryCredentials(): Promise<AwsCredentialIdentity> {
     if (this.temporaryCredentials) {
       return this.temporaryCredentials;
