@@ -11,14 +11,35 @@ import { updateSpace } from "./updateSpace";
 import { deleteSpace } from "./deleteSpace";
 import { InvalidJsonError, MissingFieldError } from "../shared/validator";
 import { addCorsHeaders } from "../shared/utils";
+import { captureAWSv3Client, getSegment } from "aws-xray-sdk-core";
+// import { resolve } from "path";
 
-const ddbClient = new DynamoDBClient({});
+// old call without tracing
+// const ddbClient = new DynamoDBClient({});
+
+// Enable tracing on specific code for the client
+const ddbClient = captureAWSv3Client(new DynamoDBClient({}));
 
 export async function handler(
   event: APIGatewayProxyEvent,
   context: Context
 ): Promise<APIGatewayProxyResult> {
   let response: APIGatewayProxyResult;
+
+  // Simulate execution performance issues and trace capture
+  /*
+  const subSegmentLong = getSegment().addNewSubsegment("TraceLongCall");
+  await new Promise((resolve) => {
+    setTimeout(resolve, 3000); // 3 seconds
+  });
+  subSegmentLong.close();
+
+  const subSegmentShort = getSegment().addNewSubsegment("TraceShortCall");
+  await new Promise((resolve) => {
+    setTimeout(resolve, 500); // half second
+  });
+  subSegmentShort.close();
+  */
 
   try {
     switch (event.httpMethod) {
