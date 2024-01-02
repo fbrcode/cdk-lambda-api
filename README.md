@@ -191,3 +191,12 @@ npm run build
 ```
 
 Then deploy the static files to S3 and CloudFront by triggering the CDK stack deployment.
+
+## Monitoring with CloudWatch
+
+- [CloudWatch](https://aws.amazon.com/cloudwatch/)
+- [SNS](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-sns-readme.html)
+
+Additional tracing code tracing capabilities with X-Ray to troubleshoot executions:
+
+- `npm i -D aws-xray-sdk-core` - AWS x-ray library

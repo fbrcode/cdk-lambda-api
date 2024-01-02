@@ -30,7 +30,9 @@ async function testAuth() {
 
   // list S3 buckets
   const bucketList = await listBuckets(credentials);
-  console.log(`S3 buckets: ${JSON.stringify(bucketList.Buckets)}`);
+  if (bucketList) {
+    console.log(`S3 buckets: ${JSON.stringify(bucketList.Buckets)}`);
+  }
 }
 
 async function listBuckets(
