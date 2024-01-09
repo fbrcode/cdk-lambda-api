@@ -1,6 +1,5 @@
 import { Config } from "@jest/types";
 
-// const baseTestDir = "<rootDir>/test/infra";
 const baseTestDir = "<rootDir>/test/services";
 
 const config: Config.InitialOptions = {

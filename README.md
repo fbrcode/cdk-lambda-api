@@ -199,9 +199,15 @@ Additional tracing code tracing capabilities with X-Ray to troubleshoot executio
 
 ## AWS SDK Testing
 
-Install Jest:
+Install Jest (TypeScript):
 
 - `npm i -D jest ts-jest @types/jest`
+
+Mock AWS SDK:
+
+- `npm i -D aws-sdk-client-mock`
+
+Docs: <https://aws.amazon.com/blogs/developer/mocking-modular-aws-sdk-for-javascript-v3-in-unit-tests/>
 
 Run tests:
 
