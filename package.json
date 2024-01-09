@@ -10,8 +10,9 @@
     "auth-jwt-test": "ts-node scripts/auth/auth.test.ts",
     "deploy": "cdk deploy --all --outputs-file out/outputs.json --profile cdk",
     "monitor-test": "ts-node scripts/monitor/monitor.test.ts",
-    "test": "jest",
-    "test2": "jest --runInBand --detectOpenHandles --forceExit --coverage"
+    "test:cdk:infra": "jest --config jest.config-cdk-infra.ts",
+    "test:cdk:services": "jest --config jest.config-cdk-services.ts",
+    "test": "npm run test:cdk:services && npm run test:cdk:infra"
   },
   "keywords": [
     "aws",
@@ -35,6 +36,7 @@
     "aws-amplify": "^5.3.13",
     "aws-cdk": "^2.111.0",
     "aws-cdk-lib": "^2.111.0",
+    "aws-sdk-client-mock": "^3.0.1",
     "aws-xray-sdk-core": "^3.5.3",
     "constructs": "^10.3.0",
     "esbuild": "^0.19.8",

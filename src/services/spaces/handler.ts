@@ -15,10 +15,10 @@ import { captureAWSv3Client, getSegment } from "aws-xray-sdk-core";
 // import { resolve } from "path";
 
 // old call without tracing
-// const ddbClient = new DynamoDBClient({});
+const ddbClient = new DynamoDBClient({});
 
 // Enable tracing on specific code for the client
-const ddbClient = captureAWSv3Client(new DynamoDBClient({}));
+// const ddbClient = captureAWSv3Client(new DynamoDBClient({}));
 
 export async function handler(
   event: APIGatewayProxyEvent,
