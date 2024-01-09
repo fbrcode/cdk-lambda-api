@@ -172,10 +172,6 @@ Install the following libraries:
 
 - `npm i react-router-dom` - routing
 - `npm i @aws-amplify/auth@5.x` - authentication
-<!--
-- `npm i @aws-sdk/client-cognito-identity` - cognito identity pool
-- `npm i @aws-sdk/credential-providers` - cognito identity pool
-  -->
 - `npm i @aws-sdk/client-s3` - s3 client
 
 Run the app locally:
@@ -200,3 +196,13 @@ Then deploy the static files to S3 and CloudFront by triggering the CDK stack de
 Additional tracing code tracing capabilities with X-Ray to troubleshoot executions:
 
 - `npm i -D aws-xray-sdk-core` - AWS x-ray library
+
+## AWS SDK Testing
+
+Install Jest:
+
+- `npm i -D jest ts-jest @types/jest`
+
+Run tests:
+
+- `npm run test`

@@ -23,6 +23,6 @@ new ApiStack(app, "ApiStack", {
   userPool: authStack.userPool,
 });
 
-new UiDeploymentStack(app, "UiDeploymentStack");
+// new UiDeploymentStack(app, "UiDeploymentStack");
 
 new MonitorStack(app, "MonitorStack");
