@@ -83,4 +83,25 @@ describe("CDK test suite", () => {
       { Ref: expect.stringMatching(/^AlarmTopic/) },
     ]);
   });
+
+  /* quick and cheap and test against templates */
+
+  // run once to generate a snapshot of the template under __snapshots__ folder => (*.snap)
+  test("Monitor stack - snapshot", () => {
+    expect(monitorStackTemplate.toJSON()).toMatchSnapshot();
+  });
+
+  // smaller snapshot for a given stack resource (i.e. Lambda)
+  test("Monitor stack :: Lambda - snapshot", () => {
+    const lambda = monitorStackTemplate.findResources("AWS::Lambda::Function");
+    expect(lambda).toMatchSnapshot();
+  });
+
+  // smaller snapshot for a given stack resource (i.e. SNS topic)
+  test("Monitor stack :: SNS topic - snapshot", () => {
+    const snsTopic = monitorStackTemplate.findResources("AWS::SNS::Topic");
+    expect(snsTopic).toMatchSnapshot();
+  });
+
+  /* */
 });
